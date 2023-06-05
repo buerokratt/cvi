@@ -4,7 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-
-export {
-  default as ScreenreaderTextComponent
-} from './lib/screenreader-text/screenreader-text';
+export { default as ScreenreaderTextComponent } from './lib/screenreader-text/screenreader-text';
