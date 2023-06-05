@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react';
 
 type ContentPanelProps = {
-  title?: String;
+  title?: string;
 };
 
 const ContentPanelComponent: FC<PropsWithChildren<ContentPanelProps>> = ({
