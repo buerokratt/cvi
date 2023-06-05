@@ -7,7 +7,7 @@ import React, {
 import * as AccessibleIcon from '@radix-ui/react-accessible-icon';
 import clsx from 'clsx';
 
-import './Icon.scss';
+import './icon.scss';
 
 type IconProps = StyleHTMLAttributes<CSSProperties> & {
   label?: string | null;

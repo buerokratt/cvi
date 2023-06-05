@@ -4,7 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-
-export {
-  default as IconComponent
-} from './lib/icon/icon';
+export { default as IconComponent } from './lib/icon/icon';
