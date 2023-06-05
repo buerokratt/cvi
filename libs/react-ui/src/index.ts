@@ -4,7 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-
-export {
-  default as AccordionComponent
-} from './lib/accordion/accordion';
+export { default as AccordionComponent } from './lib/accordion/accordion';
