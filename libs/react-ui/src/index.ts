@@ -4,6 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-export {
-  default as TrackComponent,
-} from './lib/track/track';
+export { default as TrackComponent } from './lib/track/track';
