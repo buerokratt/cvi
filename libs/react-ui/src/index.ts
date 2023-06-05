@@ -4,7 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-
-export {
-  default as ContentContainerComponent,
-} from './lib/content-container/content-container';
+export { default as ContentContainerComponent } from './lib/content-container/content-container';
