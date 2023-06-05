@@ -3,3 +3,8 @@ export {
   ButtonAppearance,
   ButtonSize,
 } from './lib/button/button';
+
+
+export {
+  default as AccordionComponent
+} from './lib/accordion/accordion';
