@@ -1,0 +1,99 @@
+@import '../../../../styles/src/lib/scss/tools/spacing';
+@import '../../../../styles/src/lib/scss/tools/color';
+@import '../../../../styles/src/lib/scss/settings/variables/other';
+@import '../../../../styles/src/lib/scss/settings/variables/typography';
+
+.select {
+    $self: &;
+    display: flex;
+    align-items: center;
+    gap: get-spacing(paldiski);
+    width: 100%;
+
+    &__label {
+        flex: 0 0 170px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__wrapper {
+        width: 100%;
+        position: relative;
+    }
+
+    &__trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        appearance: none;
+        background-color: get-color(white);
+        border: 1px solid get-color(black-coral-6);
+        border-radius: 4px;
+        color: get-color(black);
+        font-size: 16px;
+        height: 40px;
+        line-height: 24px;
+        padding: get-spacing(paldiski);
+
+        .icon {
+            font-size: 24px;
+        }
+
+        &[aria-expanded=true] {
+            border-color: get-color(sapphire-blue-10);
+            border-radius: 4px 4px 0 0;
+
+            +#{$self}__menu {
+                display: block;
+            }
+
+            .icon {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: get-color(white);
+        border-radius: 0 0 4px 4px;
+        border: 1px solid get-color(black-coral-2);
+        border-top: 0;
+        z-index: 9998;
+        max-height: 320px;
+        overflow: auto;
+    }
+
+    &__option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
+
+        span {
+            display: block;
+        }
+
+        &[aria-selected=true] {
+            background-color: get-color(sapphire-blue-10);
+            color: get-color(white);
+
+            &:hover,
+            &:focus {
+                background-color: get-color(sapphire-blue-10);
+                color: get-color(white);
+            }
+        }
+
+        &:hover,
+        &:focus {
+            background-color: get-color(black-coral-0);
+            color: get-color(black-coral-20);
+        }
+    }
+}
