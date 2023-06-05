@@ -4,7 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-
-export {
-  default as StatusBadgeComponent
-} from './lib/status-badge/status-badge';
+export { default as StatusBadgeComponent } from './lib/status-badge/status-badge';
