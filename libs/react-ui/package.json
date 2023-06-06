@@ -15,5 +15,8 @@
   "peerDependencies": {
     "@radix-ui/react-accessible-icon": "^1.0.3",
     "clsx": "^1.2.1"
+  },
+  "dependencies": {
+    "react-icons": "^4.9.0"
   }
 }

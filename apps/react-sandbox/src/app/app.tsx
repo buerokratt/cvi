@@ -1,5 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent, IconComponent } from '@egov/cvi-react';
+import {
+  ButtonComponent,
+  IconComponent,
+  LabeledIconComponent,
+} from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -11,7 +15,17 @@ export function App() {
       </ButtonComponent>
       <div />
 
-      <IconComponent icon={undefined}></IconComponent>
+      <IconComponent
+        icon={undefined}
+        label={'close'}
+        size="medium"
+      ></IconComponent>
+
+      <LabeledIconComponent
+        icon={undefined}
+        label={'close'}
+        size="medium"
+      ></LabeledIconComponent>
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
