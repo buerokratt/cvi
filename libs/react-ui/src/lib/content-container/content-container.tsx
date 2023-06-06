@@ -1,13 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react';
 
-type ContentContainerProps = {
-  content?: string;
-};
-
-const ContentContainerComponent: FC<
-  PropsWithChildren<ContentContainerProps>
-> = ({ content }) => {
-  return <div className="cvi-content-container">{content}</div>;
+const ContentContainerComponent: FC<PropsWithChildren> = ({ children }) => {
+  return <div className="cvi-content-container">{children}</div>;
 };
 
 export default ContentContainerComponent;
