@@ -30,8 +30,10 @@ export function App() {
         icon={undefined}
         label={'close'}
         size="medium"
+        iconPosition="before"
         iconLabel={'Test Label'}
         gap={10}
+        insideButton={true}
       ></LabeledIconComponent>
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}

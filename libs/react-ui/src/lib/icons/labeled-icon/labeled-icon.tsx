@@ -8,8 +8,8 @@ import * as AccessibleIcon from '@radix-ui/react-accessible-icon';
 import clsx from 'clsx';
 
 import '../icon.scss';
-import { MdOutlineSend } from 'react-icons/md';
 import TrackComponent from '../../track/track';
+import ButtonComponent from '../../button/button';
 
 type LabelIconProps = StyleHTMLAttributes<CSSProperties> & {
   label?: string | null;
@@ -17,6 +17,7 @@ type LabelIconProps = StyleHTMLAttributes<CSSProperties> & {
   icon: ReactNode;
   iconPosition?: 'before' | 'after';
   gap?: number;
+  insideButton?: boolean;
   size?: 'small' | 'medium';
 };
 
@@ -29,23 +30,35 @@ const LabeledIconComponent = forwardRef<HTMLSpanElement, LabelIconProps>(
       iconLabel,
       iconPosition = 'before',
       size = 'small',
+      insideButton = false,
       ...rest
     },
     ref
   ) => {
     const iconClasses = clsx('icon', `icon--${size}`);
 
-    return (
-      <TrackComponent gap={gap}>
+    const labeledIcon = (
+      <TrackComponent
+        gap={gap}
+        reverse={iconPosition === 'before' ? false : true}
+        justify={iconPosition === 'before' ? 'start' : 'end'}
+      >
         {iconLabel && <label>{iconLabel}</label>}
         <AccessibleIcon.Root label={label ?? ''}>
           <span ref={ref} className={iconClasses} style={rest.style}>
-            {/* {icon} */}
-            {<MdOutlineSend fontSize={18} />}
+            {icon}
           </span>
         </AccessibleIcon.Root>
       </TrackComponent>
     );
+
+    const children = insideButton ? (
+      <ButtonComponent>{labeledIcon}</ButtonComponent>
+    ) : (
+      labeledIcon
+    );
+
+    return children;
   }
 );
 
