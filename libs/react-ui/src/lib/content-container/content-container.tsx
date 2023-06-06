@@ -1,13 +1,13 @@
-import React, { forwardRef, PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
-const ContentContainerComponent = forwardRef<HTMLDivElement, PropsWithChildren>(
-  ({ children }, ref) => {
-    return (
-      <div ref={ref} className="cvi-content-container">
-        {children}
-      </div>
-    );
-  }
-);
+type ContentContainerProps = {
+  content?: string;
+};
+
+const ContentContainerComponent: FC<
+  PropsWithChildren<ContentContainerProps>
+> = ({ content }) => {
+  return <div className="cvi-content-container">{content}</div>;
+};
 
 export default ContentContainerComponent;
