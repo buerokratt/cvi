@@ -1,82 +1,37 @@
-import { ChangeEvent, useState, forwardRef, useId } from 'react';
-import TextareaAutosize, {
-  TextareaAutosizeProps,
-} from 'react-textarea-autosize';
+import React, { ChangeEvent, FC, useState } from 'react';
 
-type TextareaProps = TextareaAutosizeProps & {
-  label: string;
-  name: string;
-  hideLabel?: boolean;
+type TextareaProps = {
+  placeholder: string;
+  maxLength?: number;
   showMaxLength?: boolean;
-  maxLengthBottom?: boolean;
+  resizable?: boolean;
 };
 
-const FormTextarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (
-    {
-      label,
-      name,
-      maxLength = 2000,
-      minRows = 3,
-      maxRows = 3,
-      disabled,
-      hideLabel,
-      showMaxLength,
-      maxLengthBottom,
-      defaultValue,
-      onChange,
-      ...rest
-    },
-    ref
-  ) => {
-    const id = useId();
-    const [currentLength, setCurrentLength] = useState(
-      (typeof defaultValue === 'string' && defaultValue.length) || 0
-    );
-
-    const handleOnChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      if (showMaxLength) {
-        setCurrentLength(e.target.value.length);
-      }
-    };
-
-    return (
-      <div className={'textareaClasses'}>
-        {label && !hideLabel && (
-          <label htmlFor={'id'} className="textarea__label">
-            {label}
-          </label>
-        )}
-        <div className="textarea__wrapper">
-          <TextareaAutosize
-            id={id}
-            maxLength={maxLength}
-            minRows={minRows}
-            maxRows={maxRows}
-            ref={ref}
-            defaultValue={defaultValue}
-            aria-label={hideLabel ? label : undefined}
-            onChange={(e) => {
-              if (onChange) onChange(e);
-              handleOnChange(e);
-            }}
-            {...rest}
-          />
-          {showMaxLength && (
-            <div
-              className={
-                maxLengthBottom
-                  ? 'textarea__max-length-bottom'
-                  : 'textarea__max-length-top'
-              }
-            >
-              {currentLength}/{maxLength}
-            </div>
-          )}
+const TextareaComponent: FC<TextareaProps> = ({
+  placeholder,
+  maxLength = 2000,
+  showMaxLength = false,
+  resizable = true,
+}) => {
+  const [currentLength, setCurrentLength] = useState(0);
+  return (
+    <span className="cvi-textfield cvi-textfield--type-multiple-lines">
+      <textarea
+        className="cvi-textfield__text-control"
+        placeholder={placeholder}
+        maxLength={maxLength}
+        style={{ resize: resizable ? undefined : 'none' }}
+        onChange={(e) => {
+          if (showMaxLength) setCurrentLength(e.target.value.length);
+        }}
+      ></textarea>
+      {showMaxLength && (
+        <div className="cvi-character-counter">
+          {currentLength}/{maxLength}
         </div>
-      </div>
-    );
-  }
-);
+      )}
+    </span>
+  );
+};
 
-export default FormTextarea;
+export default TextareaComponent;

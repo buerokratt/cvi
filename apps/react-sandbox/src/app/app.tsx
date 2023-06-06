@@ -12,7 +12,12 @@ export function App() {
       <div />
 
       <div>
-        <TextareaComponent name={''} label={''}></TextareaComponent>
+        <TextareaComponent
+          placeholder="Enter Your Name"
+          maxLength={30}
+          showMaxLength={false}
+          resizable={true}
+        ></TextareaComponent>
       </div>
 
       {/* START: routes */}
