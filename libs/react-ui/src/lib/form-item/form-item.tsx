@@ -1,5 +1,4 @@
 import React, { forwardRef, InputHTMLAttributes, useId } from 'react';
-// import {useId} from 'react-dom';
 import clsx from 'clsx';
 import './form-item.scss';
 
@@ -16,15 +15,14 @@ const FormItem = forwardRef<HTMLInputElement, InputProps>(
     { label, name, disabled, hideLabel, colorInput, maxLength, ...rest },
     ref
   ) => {
-    // const id = useId();
+    const id = useId();
 
     const inputClasses = clsx('input', disabled && 'input--disabled');
 
     return (
       <div className={inputClasses}>
-        react-hook-form
         {label && !hideLabel && (
-          <label htmlFor={'id'} className="input__label">
+          <label htmlFor={id} className="input__label">
             {label}
           </label>
         )}
@@ -32,7 +30,7 @@ const FormItem = forwardRef<HTMLInputElement, InputProps>(
           <input
             className={inputClasses}
             name={name}
-            id={''}
+            id={id}
             ref={ref}
             aria-label={hideLabel ? label : undefined}
             pattern={colorInput ? '^#([a-fA-F0-9]{3}){1,2}$' : undefined}
