@@ -4,6 +4,7 @@ type TrackProps = HTMLAttributes<HTMLDivElement> & {
   gap?: number;
   align?: 'left' | 'center' | 'right' | 'stretch';
   justify?: 'start' | 'between' | 'center' | 'around' | 'end';
+  layout?: 'flex' | 'grid';
   direction?: 'horizontal' | 'vertical';
   isMultiline?: boolean;
 };
@@ -28,6 +29,7 @@ const TrackComponent: FC<PropsWithChildren<TrackProps>> = ({
   align = 'center',
   justify = 'start',
   direction = 'horizontal',
+  layout = 'flex',
   isMultiline = false,
   children,
   style,
@@ -37,7 +39,7 @@ const TrackComponent: FC<PropsWithChildren<TrackProps>> = ({
     <div
       className="track"
       style={{
-        display: 'flex',
+        display: layout,
         gap,
         alignItems: alignMap[align],
         justifyContent: justifyMap[justify],

@@ -11,9 +11,9 @@ export function App() {
       </ButtonComponent>
       <div />
 
-      <TrackComponent>
-        <ButtonComponent></ButtonComponent>
-        <ButtonComponent></ButtonComponent>
+      <TrackComponent layout="grid" isMultiline={true} justify="center">
+        <ButtonComponent>Button 1</ButtonComponent>
+        <ButtonComponent>Button 2</ButtonComponent>
       </TrackComponent>
 
       {/* START: routes */}
