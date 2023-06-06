@@ -1,12 +1,20 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent } from '@egov/cvi-react';
-
 import { Link, Route, Routes } from 'react-router-dom';
+import { ButtonComponent, useToast } from '@egov/cvi-react';
 
 export function App() {
+  const toast = useToast()
+
+  const showToast = () => toast.open({
+    type: 'success',
+    title: 'Toast Title',
+    message: 'Toast Message',
+  })
+
   return (
     <>
       <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
+      <ButtonComponent appearance={'primary'} size={'s'} onClick={showToast}>Show Toast</ButtonComponent>
       <div/>
 
       {/* START: routes */}

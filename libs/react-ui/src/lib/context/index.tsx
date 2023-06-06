@@ -1,3 +1,1 @@
-export {
-  ToastContext
-} from './ToastContext';
+export * from './ToastContext';

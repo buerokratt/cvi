@@ -8,6 +8,4 @@ export {
   default as Toast
 } from './lib/Toast';
 
-export {
-  ToastContext
-} from './lib/context';
+export * from './lib/context';

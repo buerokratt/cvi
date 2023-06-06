@@ -3,6 +3,7 @@ import {
   FC,
   PropsWithChildren,
   ReactNode,
+  useContext,
   useMemo,
   useState,
 } from 'react';
@@ -25,6 +26,8 @@ type ToastContextType = {
 };
 
 export const ToastContext = createContext<ToastContextType>(null!);
+
+export const useToast = () => useContext(ToastContext);
 
 export const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
   const { t } = useTranslation();
