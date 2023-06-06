@@ -9,3 +9,4 @@ export {
 } from './lib/Toast';
 
 export * from './lib/context';
+export * from './lib/hooks';

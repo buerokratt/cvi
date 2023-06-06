@@ -1,7 +1,7 @@
-@import 'src/styles/tools/spacing';
-@import 'src/styles/tools/color';
-@import 'src/styles/settings/variables/other';
-@import 'src/styles/settings/variables/typography';
+@import '../../../../styles/src/lib/scss/tools/spacing';
+@import '../../../../styles/src/lib/scss/tools/color';
+@import '../../../../styles/src/lib/scss/settings/variables/other';
+@import '../../../../styles/src/lib/scss/settings/variables/typography';
 
 .toast {
   padding: 16px;
@@ -35,7 +35,7 @@
   }
 
   &__content {
-    font-size: $veera-font-size-80;
+    font-size: --cvi-font-sizes-80;
 
     a {
       display: inline;
