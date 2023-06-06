@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import './form-item.scss';
 
 type FormItemProps = {
   htmlId?: string;
