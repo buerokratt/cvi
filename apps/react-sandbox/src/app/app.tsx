@@ -30,6 +30,8 @@ export function App() {
         icon={undefined}
         label={'close'}
         size="medium"
+        iconLabel={'Test Label'}
+        gap={10}
       ></LabeledIconComponent>
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
