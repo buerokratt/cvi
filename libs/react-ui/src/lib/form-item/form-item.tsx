@@ -1,42 +1,50 @@
-import React, { forwardRef, InputHTMLAttributes, useId } from 'react';
-import clsx from 'clsx';
+import React, { forwardRef } from 'react';
 import './form-item.scss';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
-  label: string;
-  name: string;
-  hideLabel?: boolean;
-  colorInput?: boolean;
-  maxLength?: number;
+type FormItemProps = {
+  htmlId?: string;
+  label?: string;
+  placeholder?: string;
+  labelPosition?: 'top' | 'side';
+  isLabelHidden?: boolean;
+  required?: boolean;
+  disabled?: boolean;
 };
 
-const FormItem = forwardRef<HTMLInputElement, InputProps>(
+const FormItem = forwardRef<HTMLInputElement, FormItemProps>(
   (
-    { label, name, disabled, hideLabel, colorInput, maxLength, ...rest },
+    {
+      htmlId,
+      label,
+      placeholder,
+      labelPosition = 'side',
+      isLabelHidden = false,
+      required = false,
+      disabled = false,
+      ...rest
+    },
     ref
   ) => {
-    const id = useId();
-
-    const inputClasses = clsx('input', disabled && 'input--disabled');
-
     return (
-      <div className={inputClasses}>
-        {label && !hideLabel && (
-          <label htmlFor={id} className="input__label">
-            {label}
+      <div
+        className={`cvi-form-item cvi-form-item--label-position-${labelPosition}${
+          required ? ' cvi-form-item--is-required' : ''
+        }`}
+      >
+        {isLabelHidden === false && (
+          <label htmlFor={htmlId} className="cvi-form-item__label">
+            {`${label}${required ? ' *' : ''}`}
           </label>
         )}
-        <div className="input__wrapper">
-          <input
-            className={inputClasses}
-            name={name}
-            id={id}
-            ref={ref}
-            aria-label={hideLabel ? label : undefined}
-            pattern={colorInput ? '^#([a-fA-F0-9]{3}){1,2}$' : undefined}
-            {...rest}
-          />
-        </div>
+        <input
+          className="cvi-textfield__text-control"
+          type="text"
+          placeholder={placeholder ?? ''}
+          disabled={disabled}
+          id={htmlId}
+          ref={ref}
+          {...rest}
+        />
       </div>
     );
   }

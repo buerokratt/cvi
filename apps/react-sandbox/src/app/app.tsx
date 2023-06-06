@@ -1,5 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent, FormItem, TextareaComponent, TrackComponent } from '@egov/cvi-react';
+import {
+  ButtonComponent,
+  FormItem,
+  TextareaComponent,
+  TrackComponent,
+} from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -25,7 +30,14 @@ export function App() {
         ></TextareaComponent>
       </div>
 
-      <FormItem name={'Form Input'} label={'Input'}></FormItem>
+      <FormItem
+        label={'Your email'}
+        placeholder="placeholder..."
+        labelPosition="side"
+        isLabelHidden={false}
+        required={false}
+        htmlId="id"
+      ></FormItem>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
