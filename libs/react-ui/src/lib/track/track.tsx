@@ -6,6 +6,7 @@ type TrackProps = HTMLAttributes<HTMLDivElement> & {
   justify?: 'start' | 'between' | 'center' | 'around' | 'end';
   layout?: 'flex' | 'grid';
   direction?: 'horizontal' | 'vertical';
+  reverse?: boolean;
   isMultiline?: boolean;
 };
 
@@ -31,6 +32,7 @@ const TrackComponent: FC<PropsWithChildren<TrackProps>> = ({
   direction = 'horizontal',
   layout = 'flex',
   isMultiline = false,
+  reverse = false,
   children,
   style,
   ...rest
@@ -43,7 +45,14 @@ const TrackComponent: FC<PropsWithChildren<TrackProps>> = ({
         gap,
         alignItems: alignMap[align],
         justifyContent: justifyMap[justify],
-        flexDirection: direction === 'horizontal' ? 'row' : 'column',
+        flexDirection:
+          direction === 'horizontal'
+            ? reverse
+              ? 'row-reverse'
+              : 'row'
+            : reverse
+            ? 'column-reverse'
+            : 'column',
         flexWrap: isMultiline ? 'wrap' : undefined,
         ...style,
       }}
