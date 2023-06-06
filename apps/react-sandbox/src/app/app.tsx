@@ -5,8 +5,8 @@ import { ButtonComponent, useToast } from '@egov/cvi-react';
 export function App() {
   const toast = useToast()
 
-  const showToast = () => toast.open({
-    type: 'success',
+  const showToast = (type: 'info' | 'success' | 'error' | 'warning') => toast.open({
+    type,
     title: 'Toast Title',
     message: 'Toast Message',
   })
@@ -14,8 +14,14 @@ export function App() {
   return (
     <>
       <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
-      <ButtonComponent appearance={'primary'} size={'s'} onClick={showToast}>Show Toast</ButtonComponent>
       <div/>
+
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <ButtonComponent appearance={'primary'} size={'s'} onClick={() => showToast('success')}>Show Success Toast</ButtonComponent>
+        <ButtonComponent appearance={'primary'} size={'s'} onClick={() => showToast('info')}>Show Info Toast</ButtonComponent>
+        <ButtonComponent appearance={'primary'} size={'s'} onClick={() => showToast('error')}>Show Error Toast</ButtonComponent>
+        <ButtonComponent appearance={'primary'} size={'s'} onClick={() => showToast('warning')}>Show Warning Toast</ButtonComponent>
+      </div>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}

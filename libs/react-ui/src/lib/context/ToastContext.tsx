@@ -16,6 +16,7 @@ export type ToastType = {
   type: 'info' | 'success' | 'error' | 'warning';
   title: string;
   message: ReactNode;
+  timeout?: number;
 };
 
 type ToastTypeWithId = ToastType & { id: string };
