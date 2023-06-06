@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent } from '@egov/cvi-react';
+import { ButtonComponent, Tooltip } from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -7,6 +7,9 @@ export function App() {
   return (
     <>
       <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
+      <Tooltip content=''>
+        <div>tooltip</div>
+      </Tooltip>
       <div/>
 
       {/* START: routes */}
