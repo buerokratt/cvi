@@ -11,7 +11,7 @@ export function App() {
       </ButtonComponent>
       <div />
 
-      <ScreenreaderTextComponent label="Some text that should only be visible to a screen reader"></ScreenreaderTextComponent>
+      <ScreenreaderTextComponent label="Some text that should only be visible to a screen reader."></ScreenreaderTextComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
