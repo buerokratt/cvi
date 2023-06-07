@@ -13,7 +13,7 @@
     "registry": "https://koodivaramu.eesti.ee/api/v4/projects/433/packages/npm/"
   },
   "peerDependencies": {
-    "@radix-ui/react-collapsible": "^1.0.3",
-    "react-icons": "^4.9.0"
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/colors": "^0.1.8"
   }
 }

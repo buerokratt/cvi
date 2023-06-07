@@ -11,7 +11,21 @@ export function App() {
       </ButtonComponent>
       <div />
 
-      <AccordionComponent title={'title'}></AccordionComponent>
+      <AccordionComponent
+        singleOpen={true}
+        items={[
+          {
+            title: 'Super Simple Accordion',
+            body: 'Some content here.',
+          },
+          {
+            title:
+              'Yet another item, but this time disabled with a very long text',
+            body: 'Disabled Content',
+            disabled: true,
+          },
+        ]}
+      ></AccordionComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}

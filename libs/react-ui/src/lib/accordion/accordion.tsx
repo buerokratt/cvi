@@ -1,46 +1,56 @@
-import React, { FC, PropsWithChildren, useState } from 'react';
-import * as RadixCollapsible from '@radix-ui/react-collapsible';
-// import {
-//   MdOutlineAddBox,
-//   MdOutlineIndeterminateCheckBox,
-// } from 'react-icons/md';
-
-// import { Icon } from 'components';
-// import './Collapsible.scss';
+import React, { FC, PropsWithChildren } from 'react';
+import * as Accordion from '@radix-ui/react-accordion';
+import './accordion.scss';
 
 type AccordionProps = {
-  title: string;
-  defaultOpen?: boolean;
+  singleOpen?: boolean;
+  items: {
+    title: string;
+    body: string;
+    disabled?: boolean;
+  }[];
 };
 
 const AccordionComponent: FC<PropsWithChildren<AccordionProps>> = ({
-  defaultOpen = false,
-  title,
-  children,
+  singleOpen = true,
+  items,
 }) => {
-  const [open, setOpen] = useState(defaultOpen);
-
   return (
-    <RadixCollapsible.Root
-      className="collapsible"
-      open={open}
-      onOpenChange={setOpen}
+    <Accordion.Root
+      className="AccordionRoot"
+      type={singleOpen ? 'single' : 'multiple'}
+      collapsible
     >
-      <RadixCollapsible.Trigger asChild className="collapsible__trigger">
-        <button>
-          {/* <Icon
-            icon={
-              open ? <MdOutlineIndeterminateCheckBox /> : <MdOutlineAddBox />
-            }
-            size="medium"
-          /> */}
-          <h3 className="h6">{title}</h3>
-        </button>
-      </RadixCollapsible.Trigger>
-      <RadixCollapsible.Content className="collapsible__content">
-        {children}
-      </RadixCollapsible.Content>
-    </RadixCollapsible.Root>
+      {items.map((item, index) => (
+        <Accordion.Item
+          className="AccordionItem"
+          value={`item-${index}`}
+          disabled={item.disabled ?? false}
+        >
+          <Accordion.Header className="AccordionHeader">
+            <Accordion.Trigger className="AccordionTrigger">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                className="AccordionChevron"
+                fill={item.disabled === true ? '#898b97' : '#005aa3'}
+              >
+                <path
+                  d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z"
+                  className="ng-tns-c78-0"
+                ></path>
+              </svg>
+              {item.title}
+            </Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className={'AccordionContent'}>
+            <div className="AccordionContentText">{item.body}</div>
+          </Accordion.Content>
+        </Accordion.Item>
+      ))}
+    </Accordion.Root>
   );
 };
 
