@@ -4,4 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-export { default as Modal } from './lib/Modal';
+export { default as Modal } from './lib/Modal-rename';
