@@ -4,4 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-export { default as Steps } from './lib/Steps';
+export { default as Steps } from './lib/steps';
