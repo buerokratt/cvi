@@ -14,10 +14,10 @@ export function App() {
       <ButtonComponent appearance={'primary'} size={'s'} onClick={() => setShowModal(true)}>Show Modal</ButtonComponent>
       {showModal && (
         <Modal
-          title='title'
+          title='Some Title'
           onClose={() => setShowModal(false)}
         >
-          <p>Modal content</p>
+          <p>Some modal content</p>
         </Modal>
       )}
 

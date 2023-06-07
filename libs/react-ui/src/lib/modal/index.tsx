@@ -1,45 +1,73 @@
-import { FC, PropsWithChildren, ReactNode } from 'react';
+import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import * as RadixDialog from '@radix-ui/react-dialog';
 import { MdOutlineClose } from 'react-icons/md';
-import clsx from 'clsx';
 
-import { Icon } from '../Icon';
-import { Track } from '../Track';
-import './Dialog.scss';
+import Icon from '../icon';
+import Track from '../track';
+import Button from '../button/button';
+import './Modal.scss';
 
-type DialogProps = {
+type ModalProps = {
   title?: string | null;
-  footer?: ReactNode;
   onClose: () => void;
-  size?: 'default' | 'large';
+  footer?: ReactNode;
+  cancelButtonText?: string,
+  confirmButtonText?: string,
+  onConfirm?: () => void;
+  onCancel?: () => void;
 }
 
-const Dialog: FC<PropsWithChildren<DialogProps>> = ({ title, footer, onClose, size = 'default', children }) => {
+const Modal: FC<PropsWithChildren<ModalProps>> = ({
+  title,
+  onClose,
+  children,
+  confirmButtonText,
+  onConfirm,
+  cancelButtonText,
+  onCancel,
+  footer,
+}) => {
   return (
-    <RadixDialog.Root defaultOpen={true} onOpenChange={onClose}>
-      <RadixDialog.Portal>
-        <RadixDialog.Overlay className='dialog__overlay' />
-        <RadixDialog.Content className={clsx('dialog', `dialog--${size}`)}>
-          {
-            title && <div className='dialog__header'>
-              <RadixDialog.Title className='h3 dialog__title'>{title}</RadixDialog.Title>
-              <RadixDialog.Close asChild>
-                <button className='dialog__close'>
-                  <Icon icon={<MdOutlineClose />} size='medium' />
-                </button>
-              </RadixDialog.Close>
+    <>
+      <RadixDialog.Root defaultOpen={true} onOpenChange={onClose}>
+        <RadixDialog.Portal>
+          <RadixDialog.Content className='cvi-modal__dialog'>
+            {
+              title && <div className='cvi-modal__header'>
+                <RadixDialog.Title className='h2 cvi-modal__title'>{title}</RadixDialog.Title>
+                <RadixDialog.Close asChild>
+                  <button className='cvi-modal__close'>
+                    <Icon icon={<MdOutlineClose />} size='medium' />
+                  </button>
+                </RadixDialog.Close>
+              </div>
+            }
+            <div className='cvi-modal__body'>
+              {children}
             </div>
-          }
-          <div className='dialog__body'>
-            {children}
-          </div>
-          {footer && (
-            <Track className='dialog__footer' gap={16} justify='end'>{footer}</Track>
-          )}
-        </RadixDialog.Content>
-      </RadixDialog.Portal>
-    </RadixDialog.Root>
+            <div className="cvi-modal__footer">
+              <Track direction='horizontal' align='right' gap={2}>
+                {
+                  onCancel &&
+                  <Button appearance="secondary" onClick={onCancel}>
+                    {cancelButtonText ?? 'Cancel'}
+                  </Button>
+                }
+                {
+                  onConfirm &&
+                  <Button onClick={onConfirm}>
+                    {confirmButtonText ?? 'Confirm'}
+                  </Button>
+                }
+                {footer}
+              </Track>
+            </div>
+          </RadixDialog.Content>
+        </RadixDialog.Portal >
+      </RadixDialog.Root >
+      <div className="cvi-modal__backdrop" onClick={onClose} />
+    </>
   );
 };
 
-export default Dialog;
+export default Modal;
