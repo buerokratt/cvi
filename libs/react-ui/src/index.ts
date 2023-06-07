@@ -4,4 +4,4 @@ export {
   ButtonSize,
 } from './lib/button/button';
 
-export { default as Notification, NotificationType } from './lib/Notification';
+export { default as Notification, NotificationType } from './lib/Notification-rename';

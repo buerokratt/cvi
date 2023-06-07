@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react';
-import * as RadixToast from '@radix-ui/react-toast';
 import {
   MdOutlineClose,
   MdOutlineInfo,
@@ -9,7 +8,7 @@ import {
 } from 'react-icons/md';
 import clsx from 'clsx';
 
-import Icon from '../Icon';
+import Icon from '../icon';
 import './Notification.scss';
 
 export type NotificationType = 'info' | 'success' | 'warning' | 'error' | 'neutral';
