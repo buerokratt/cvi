@@ -13,8 +13,11 @@ const Footer: FC<FooterProps> = ({
   select,
   activeStepIndex,
 }) => {
-  if (steps.length <= 1 || activeStepIndex === null)
+
+  if (steps.length <= 1 || activeStepIndex === null) {
     return <></>;
+  }
+
   return (
     <div className="cvi-steps__directional-buttons">
       {activeStepIndex > 0 && (
