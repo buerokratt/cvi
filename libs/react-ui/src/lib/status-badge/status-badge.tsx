@@ -1,21 +1,17 @@
 import React, { FC, PropsWithChildren } from 'react';
+import './status-badge.scss';
 
 type StatusBadgeProps = {
+  severityStyle?: 'info' | 'success' | 'warning';
   content?: string;
 };
 
 const StatusBadgeComponent: FC<PropsWithChildren<StatusBadgeProps>> = ({
+  severityStyle = 'info',
   content,
 }) => {
   return (
-    <span
-      className="cvi-status-badge"
-      style={{
-        color: '#005aa3',
-        backgroundColor: '#e7f0f6',
-        border: '2px solid #005aa3',
-      }}
-    >
+    <span className={`status-badge status-badge__${severityStyle}`}>
       {content}
     </span>
   );

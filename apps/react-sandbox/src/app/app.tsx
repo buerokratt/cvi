@@ -11,7 +11,10 @@ export function App() {
       </ButtonComponent>
       <div />
 
-      <StatusBadgeComponent content="waiting"></StatusBadgeComponent>
+      <StatusBadgeComponent
+        content="waiting"
+        severityStyle="info"
+      ></StatusBadgeComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
