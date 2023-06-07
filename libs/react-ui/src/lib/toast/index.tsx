@@ -8,7 +8,7 @@ import {
   MdErrorOutline,
 } from 'react-icons/md';
 import clsx from 'clsx';
-import Icon from '../Icon';
+import Icon from '../icon';
 import type { ToastType } from '../context/ToastContext';
 import './Toast.scss';
 
