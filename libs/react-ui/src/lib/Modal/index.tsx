@@ -3,7 +3,8 @@ import * as RadixDialog from '@radix-ui/react-dialog';
 import { MdOutlineClose } from 'react-icons/md';
 import clsx from 'clsx';
 
-import { Icon, Track } from '..';
+import { Icon } from '../Icon';
+import { Track } from '../Track';
 import './Dialog.scss';
 
 type DialogProps = {

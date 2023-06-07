@@ -1,26 +1,25 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useState } from 'react';
-import { ButtonComponent, Dialog } from '@egov/cvi-react';
+import { ButtonComponent, Modal } from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
-  const [showDialog, setShowDialog] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
-
-      <ButtonComponent appearance={'primary'} size={'s'} onClick={() => setShowDialog(true)}>Show dialog</ButtonComponent>
-      {showDialog && (
-        <Dialog
-          title='title'
-          onClose={() => setShowDialog(false)}
-        >
-          <p>Dialog content</p>
-        </Dialog>
-      )}
-
       <div/>
+
+      <ButtonComponent appearance={'primary'} size={'s'} onClick={() => setShowModal(true)}>Show Modal</ButtonComponent>
+      {showModal && (
+        <Modal
+          title='title'
+          onClose={() => setShowModal(false)}
+        >
+          <p>Modal content</p>
+        </Modal>
+      )}
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
