@@ -27,11 +27,16 @@ export function App() {
         ></TextareaComponent>
       </div>
 
-      <InputComponent
-        label="Your Name"
-        showMaxLength={true}
-        maxLength={40}
-      ></InputComponent>
+      <div>
+        <InputComponent
+          label="Your Name"
+          placeholder="Name..."
+          showMaxLength={false}
+          maxLength={40}
+          disabled={false}
+          icon={undefined}
+        ></InputComponent>
+      </div>
 
       <TrackComponent layout="grid" isMultiline={true} justify="center">
         <ButtonComponent>Button 1</ButtonComponent>
