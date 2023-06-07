@@ -25,26 +25,35 @@ const Header: FC<Header> = ({
   }, [activeStepIndex, steps]);
 
   return (
-    <ol className="cvi-steps__list">
-      {steps.map((step: any, i: number) => (
-        <li
-          key={i}
-          className={`cvi-steps__list-item ${activeStepIndex !== null && i <= activeStepIndex ? 'is-past' : ''} ${i === activeStepIndex ? 'is-current' : ''}`}
-          data-attribute={`cvi-steps__list-item_${i}`}
-        >
-          <button className="cvi-steps__list-item-button" onClick={() => select(i)}
-            data-attribute={`cvi-steps__list-item-button_${i}`}
+    <>
+      <ol className="cvi-steps__list">
+        {steps.map((step: any, i: number) => (
+          <li
+            key={i}
+            className={`cvi-steps__list-item ${activeStepIndex !== null && i <= activeStepIndex ? 'is-past' : ''} ${i === activeStepIndex ? 'is-current' : ''}`}
+            data-attribute={`cvi-steps__list-item_${i}`}
           >
-            <div className="cvi-steps__list-item-inner">
-              <span className="cvi-steps__list-item-title">{step.title}</span>
-              <div className="cvi-steps__list-item-arrow-icon-wrapper">
-                <span className="cvi-steps__list-item-arrow-icon">▶</span>
+            <button className="cvi-steps__list-item-button" onClick={() => select(i)}
+              data-attribute={`cvi-steps__list-item-button_${i}`}
+            >
+              <div className="cvi-steps__list-item-inner">
+                <span className="cvi-steps__list-item-title">{step.title}</span>
+                <div className="cvi-steps__list-item-arrow-icon-wrapper">
+                  <span className="cvi-steps__list-item-arrow-icon">▶</span>
+                </div>
               </div>
-            </div>
-          </button>
-        </li>
-      ))}
-    </ol>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <filter id="round">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 19 -9" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+      </svg>
+    </>
   );
 }
 
