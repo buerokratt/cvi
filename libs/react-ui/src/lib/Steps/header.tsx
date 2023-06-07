@@ -4,7 +4,7 @@ import './Steps.scss';
 
 interface Header {
   steps: Step[];
-  activeStepIndex: number;
+  activeStepIndex?: number;
   select: (index: number) => void;
 }
 
@@ -14,13 +14,14 @@ const Header: FC<Header> = ({
   select,
 }) => {
 
+  const anyStepSelcted = activeStepIndex !== null && activeStepIndex !== undefined;
+
   useEffect(() => {
-    const anyStepSelected = activeStepIndex !== null;
-    const currentProgressCSSVar = anyStepSelected ? (activeStepIndex / (steps.length - 1)) * 100 : 0;
+    const currentProgressCSSVar = anyStepSelcted ? (activeStepIndex / (steps.length - 1)) * 100 : 0;
 
     document.documentElement?.style.setProperty(
       `--progress`,
-      anyStepSelected ? currentProgressCSSVar + '%' : '100%'
+      anyStepSelcted ? currentProgressCSSVar + '%' : '100%'
     );
   }, [activeStepIndex, steps]);
 
@@ -30,12 +31,9 @@ const Header: FC<Header> = ({
         {steps.map((step: any, i: number) => (
           <li
             key={i}
-            className={`cvi-steps__list-item ${activeStepIndex !== null && i <= activeStepIndex ? 'is-past' : ''} ${i === activeStepIndex ? 'is-current' : ''}`}
-            data-attribute={`cvi-steps__list-item_${i}`}
+            className={`cvi-steps__list-item ${anyStepSelcted && i <= activeStepIndex ? 'is-past' : ''} ${i === activeStepIndex ? 'is-current' : ''}`}
           >
-            <button className="cvi-steps__list-item-button" onClick={() => select(i)}
-              data-attribute={`cvi-steps__list-item-button_${i}`}
-            >
+            <button className="cvi-steps__list-item-button" onClick={() => select(i)}>
               <div className="cvi-steps__list-item-inner">
                 <span className="cvi-steps__list-item-title">{step.title}</span>
                 <div className="cvi-steps__list-item-arrow-icon-wrapper">

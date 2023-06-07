@@ -8,7 +8,7 @@ interface StepsProps {
   title?: string;
   description?: string;
   steps: Step[];
-  activeStepIndex: number;
+  activeStepIndex?: number;
   select: (index: number) => void;
 }
 
@@ -36,10 +36,13 @@ const Steps: FC<StepsProps> = ({
       <div className="cvi-steps__inner">
         <Header steps={steps} activeStepIndex={activeStepIndex} select={select} />
         <div className='cvi-steps__step'>
-          <div className='cvi-steps__content-panel'>
-            <h2 className='cvi-steps__content-panel-title'>{steps[activeStepIndex].title}</h2>
-            {steps[activeStepIndex].content}
-          </div>
+          {
+            activeStepIndex !== undefined && activeStepIndex !== null &&
+            <div className='cvi-steps__content-panel'>
+              <h2 className='cvi-steps__content-panel-title'>{steps[activeStepIndex].title}</h2>
+              {steps[activeStepIndex].content}
+            </div>
+          }
           <Footer steps={steps} activeStepIndex={activeStepIndex} select={select} />
         </div>
       </div>

@@ -4,7 +4,7 @@ import './Steps.scss';
 
 interface FooterProps {
   steps: Step[];
-  activeStepIndex: number;
+  activeStepIndex?: number;
   select: (index: number) => void;
 }
 
@@ -14,7 +14,7 @@ const Footer: FC<FooterProps> = ({
   activeStepIndex,
 }) => {
 
-  if (steps.length <= 1 || activeStepIndex === null) {
+  if (activeStepIndex === undefined || activeStepIndex === null || steps.length <= 1) {
     return <></>;
   }
 

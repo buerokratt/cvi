@@ -6,7 +6,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
 
-  const [step, setStep] = useState(0)
+  const [step, setStep] = useState<number | undefined>(undefined)
 
   return (
     <>
