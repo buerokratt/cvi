@@ -6,7 +6,7 @@ export {
 
 export {
   default as Toast
-} from './lib/Toast';
+} from './lib/Toast-rename';
 
 export * from './lib/context';
 export * from './lib/hooks';
