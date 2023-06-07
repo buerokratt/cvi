@@ -1,5 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent, TextareaComponent } from '@egov/cvi-react';
+import {
+  ButtonComponent,
+  InputComponent,
+  TextareaComponent,
+} from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -19,6 +23,12 @@ export function App() {
           resizable={true}
         ></TextareaComponent>
       </div>
+
+      <InputComponent
+        label="Your Name"
+        showMaxLength={true}
+        maxLength={40}
+      ></InputComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
