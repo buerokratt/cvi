@@ -1,20 +1,41 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent } from '@egov/cvi-react';
+import { ButtonComponent, SelectComponent } from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
   return (
     <>
-      <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
-      <div/>
+      <ButtonComponent appearance={'primary'} size={'s'}>
+        Click me
+      </ButtonComponent>
+      <div />
+      <SelectComponent
+        style={{ width: 250 }}
+        label={'Some label'}
+        placeholder={'Otsi elementi või lisa uss 🐍'}
+        options={[
+          {
+            label: 'Item 1 that is not that short but actually quite long',
+            value: 'first',
+          },
+          { label: 'item 2', value: 'second' },
+          { label: 'Item that can be selected from keyboard', value: 'third' },
+          { label: 'Item 4', value: 'fourth' },
+          { label: 'Item 5', value: 'fifth' },
+          {
+            label: 'Item 6 with a very long text spanning many lines',
+            value: 'sixth',
+          },
+        ]}
+      ></SelectComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
-      <br/>
-      <hr/>
-      <br/>
+      <br />
+      <hr />
+      <br />
       <div role="navigation">
         <ul>
           <li>

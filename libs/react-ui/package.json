@@ -11,5 +11,9 @@
   },
   "publishConfig": {
     "registry": "https://koodivaramu.eesti.ee/api/v4/projects/433/packages/npm/"
+  },
+  "peerDependencies": {
+    "downshift": "^7.6.0",
+    "clsx": "^1.2.1"
   }
 }
