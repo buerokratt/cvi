@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent } from '@egov/cvi-react';
+import { ButtonComponent, Notification } from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -9,6 +9,12 @@ export function App() {
       <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
       <div/>
 
+      <Notification
+        title='Title'
+        content='content'
+        type='success'
+        size='compact'
+      />
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}

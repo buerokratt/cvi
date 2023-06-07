@@ -11,5 +11,11 @@
   },
   "publishConfig": {
     "registry": "https://koodivaramu.eesti.ee/api/v4/projects/433/packages/npm/"
+  },
+  "peerDependencies": {
+    "@radix-ui/react-accessible-icon": "^1.0.1",
+    "@radix-ui/react-toast": "^1.1.2",
+    "clsx": "^1.2.1",
+    "react-icons": "^4.7.1"
   }
 }
