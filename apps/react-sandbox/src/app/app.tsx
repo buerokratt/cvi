@@ -7,8 +7,8 @@ export function App() {
   return (
     <>
       <ButtonComponent appearance={ 'primary'} size={'s'}>Click me</ButtonComponent>
-      <Tooltip content=''>
-        <div>tooltip</div>
+      <Tooltip content='This is a tooltip'>
+        <span>tooltip</span>
       </Tooltip>
       <div/>
 
