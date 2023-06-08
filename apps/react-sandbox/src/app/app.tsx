@@ -1,11 +1,12 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {
   ButtonComponent,
-  FormItem,
-  TextareaComponent,
   TrackComponent,
+  IconComponent,
+  LabeledIconComponent,
+  TextareaComponent,
+  FormItem,
 } from '@egov/cvi-react';
-
 import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
@@ -38,6 +39,22 @@ export function App() {
         required={false}
         htmlId="id"
       ></FormItem>
+
+      <IconComponent
+        icon={undefined}
+        label={'close'}
+        size="medium"
+      ></IconComponent>
+
+      <LabeledIconComponent
+        icon={undefined}
+        label={'close'}
+        size="medium"
+        iconPosition="before"
+        iconLabel={'Test Label'}
+        gap={10}
+        insideButton={true}
+      ></LabeledIconComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
