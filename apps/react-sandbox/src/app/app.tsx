@@ -1,6 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent, HtmlSectionComponent } from '@egov/cvi-react';
-
+import {
+  ButtonComponent,
+  TrackComponent,
+  IconComponent,
+  LabeledIconComponent,
+  TextareaComponent,
+  FormItem,
+  HtmlSectionComponent,
+} from '@egov/cvi-react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
@@ -21,6 +28,45 @@ export function App() {
           <label>Section </label>
         </HtmlSectionComponent>
       </HtmlSectionComponent>
+
+      <TrackComponent layout="grid" isMultiline={true} justify="center">
+        <ButtonComponent>Button 1</ButtonComponent>
+        <ButtonComponent>Button 2</ButtonComponent>
+      </TrackComponent>
+
+      <div>
+        <TextareaComponent
+          placeholder="Enter Your Name"
+          maxLength={30}
+          showMaxLength={false}
+          resizable={true}
+        ></TextareaComponent>
+      </div>
+
+      <FormItem
+        label={'Your email'}
+        placeholder="placeholder..."
+        labelPosition="side"
+        isLabelHidden={false}
+        required={false}
+        htmlId="id"
+      ></FormItem>
+
+      <IconComponent
+        icon={undefined}
+        label={'close'}
+        size="medium"
+      ></IconComponent>
+
+      <LabeledIconComponent
+        icon={undefined}
+        label={'close'}
+        size="medium"
+        iconPosition="before"
+        iconLabel={'Test Label'}
+        gap={10}
+        insideButton={true}
+      ></LabeledIconComponent>
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
