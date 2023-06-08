@@ -1,22 +1,44 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {
   ButtonComponent,
+  TrackComponent,
   IconComponent,
-  InputComponent,
   LabeledIconComponent,
   TextareaComponent,
-  TrackComponent,
+  FormItem,
+  HtmlSectionComponent,
+  ContentContainerComponent,
+  ContentPanelComponent,
+  ScreenreaderTextComponent,
+  StatusBadgeComponent,
+  AccordionComponent,
+  InputComponent,
 } from '@egov/cvi-react';
-
 import { Link, Route, Routes } from 'react-router-dom';
 
 export function App() {
   return (
     <>
-      <ButtonComponent appearance={'primary'} size={'s'} disabled={false}>
+      <ButtonComponent appearance={'primary'} size={'s'}>
         Click me
       </ButtonComponent>
       <div />
+
+      <HtmlSectionComponent>
+        <label>CVI </label>
+        <label>Testing </label>
+        <label>Section </label>
+        <HtmlSectionComponent>
+          <label>CVI </label>
+          <label>Testing </label>
+          <label>Section </label>
+        </HtmlSectionComponent>
+      </HtmlSectionComponent>
+
+      <TrackComponent layout="grid" isMultiline={true} justify="center">
+        <ButtonComponent>Button 1</ButtonComponent>
+        <ButtonComponent>Button 2</ButtonComponent>
+      </TrackComponent>
 
       <div>
         <TextareaComponent
@@ -27,21 +49,14 @@ export function App() {
         ></TextareaComponent>
       </div>
 
-      <div>
-        <InputComponent
-          label="Your Name"
-          placeholder="Name..."
-          showMaxLength={false}
-          maxLength={40}
-          disabled={false}
-          icon={undefined}
-        ></InputComponent>
-      </div>
-
-      <TrackComponent layout="grid" isMultiline={true} justify="center">
-        <ButtonComponent>Button 1</ButtonComponent>
-        <ButtonComponent>Button 2</ButtonComponent>
-      </TrackComponent>
+      <FormItem
+        label={'Your email'}
+        placeholder="placeholder..."
+        labelPosition="side"
+        isLabelHidden={false}
+        required={false}
+        htmlId="id"
+      ></FormItem>
 
       <IconComponent
         icon={undefined}
@@ -58,6 +73,75 @@ export function App() {
         gap={10}
         insideButton={true}
       ></LabeledIconComponent>
+
+      <ContentContainerComponent>
+        Create recall build border flat fourth wild however swam motor shake fly
+        hidden running dead bear walk floor plan chance yourself shade hunt
+        came. Lay fence wave several short birth desk thrown clearly official
+        blanket strike neck can card cabin quiet horn leather rocket forth
+        current kill mile. Color paper sad bread substance fact consider soon
+        after west brass impossible perhaps reason interior hit program start
+        section unless peace whatever screen record. Scientific torn spirit
+        period surrounded brief drew account show tube canal meet walk
+        expression just syllable exactly cannot industrial dawn universe worth
+        include movie. Fight game touch ants kept strange win impossible happen
+        deeply company yesterday above different birth nation fall thee pleasant
+        given main wrote appearance situation. Basis box factory bar quickly
+        shut whistle breathe sweet limited while indicate gulf labor stream plan
+        southern green produce break for place concerned discussion.
+      </ContentContainerComponent>
+
+      <ContentPanelComponent title={'CVI'}>
+        Create recall build border flat fourth wild however swam motor shake fly
+        hidden running dead bear walk floor plan chance yourself shade hunt
+        came. Lay fence wave several short birth desk thrown clearly official
+        blanket strike neck can card cabin quiet horn leather rocket forth
+        current kill mile. Color paper sad bread substance fact consider soon
+        after west brass impossible perhaps reason interior hit program start
+        section unless peace whatever screen record. Scientific torn spirit
+        period surrounded brief drew account show tube canal meet walk
+        expression just syllable exactly cannot industrial dawn universe worth
+        include movie. Fight game touch ants kept strange win impossible happen
+        deeply company yesterday above different birth nation fall thee pleasant
+        given main wrote appearance situation. Basis box factory bar quickly
+        shut whistle breathe sweet limited while indicate gulf labor stream plan
+        southern green produce break for place concerned discussion.
+      </ContentPanelComponent>
+
+      <ScreenreaderTextComponent label="Some text that should only be visible to a screen reader."></ScreenreaderTextComponent>
+
+      <StatusBadgeComponent
+        content="waiting"
+        severityStyle="info"
+      ></StatusBadgeComponent>
+
+      <AccordionComponent
+        singleOpen={true}
+        items={[
+          {
+            title: 'Super Simple Accordion',
+            body: 'Some content here.',
+          },
+          {
+            title:
+              'Yet another item, but this time disabled with a very long text',
+            body: 'Disabled Content',
+            disabled: true,
+          },
+        ]}
+      ></AccordionComponent>
+
+      <div>
+        <InputComponent
+          label="Your Name"
+          placeholder="Name..."
+          showMaxLength={false}
+          maxLength={40}
+          disabled={false}
+          icon={undefined}
+        ></InputComponent>
+      </div>
+
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}

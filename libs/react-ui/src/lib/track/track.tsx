@@ -53,7 +53,7 @@ const TrackComponent: FC<PropsWithChildren<TrackProps>> = ({
             : reverse
             ? 'column-reverse'
             : 'column',
-        flexWrap: isMultiline ? 'wrap' : 'wrap',
+        flexWrap: isMultiline ? 'wrap' : undefined,
         ...style,
       }}
       {...rest}
