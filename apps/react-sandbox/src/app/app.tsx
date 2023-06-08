@@ -1,5 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { ButtonComponent, TrackComponent } from '@egov/cvi-react';
+import {
+  ButtonComponent,
+  TextareaComponent,
+  TrackComponent,
+} from '@egov/cvi-react';
 
 import { Link, Route, Routes } from 'react-router-dom';
 
@@ -10,6 +14,15 @@ export function App() {
         Click me
       </ButtonComponent>
       <div />
+
+      <div>
+        <TextareaComponent
+          placeholder="Enter Your Name"
+          maxLength={30}
+          showMaxLength={false}
+          resizable={true}
+        ></TextareaComponent>
+      </div>
 
       <TrackComponent layout="grid" isMultiline={true} justify="center">
         <ButtonComponent>Button 1</ButtonComponent>
