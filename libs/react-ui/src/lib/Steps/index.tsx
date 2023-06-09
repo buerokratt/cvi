@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Step } from './type';
 import Header from './header';
-import './Steps.scss';
 import Footer from './footer';
+import './Steps.scss';
 
 interface StepsProps {
   title?: string;
