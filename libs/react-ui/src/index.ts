@@ -66,4 +66,7 @@ export { default as Modal } from './lib/modal/modal';
 
 export { default as Steps } from './lib/steps/steps';
 
-export { default as Notification, NotificationType } from './lib/notification/notification';
+export {
+  default as Notification,
+  NotificationType,
+} from './lib/notification/notification';
