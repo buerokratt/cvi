@@ -8,8 +8,9 @@ import {
 } from 'react-icons/md';
 import clsx from 'clsx';
 
-import Icon from '../icon';
+import Icon from '../icons/icon/icon';
 import './Notification.scss';
+
 
 export type NotificationType = 'info' | 'success' | 'warning' | 'error' | 'neutral';
 
