@@ -2,9 +2,9 @@ import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import * as RadixDialog from '@radix-ui/react-dialog';
 import { MdOutlineClose } from 'react-icons/md';
 
-import Icon from '../icon';
-import Track from '../track';
 import Button from '../button/button';
+import Track from '../track/track';
+import Icon from '../icons/icon/icon';
 import './Modal.scss';
 
 type ModalProps = {
@@ -31,7 +31,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
     <>
       <RadixDialog.Root defaultOpen={true} onOpenChange={onClose}>
         <RadixDialog.Portal>
-          <RadixDialog.Content className='cvi-modal__dialog'>
+          <RadixDialog.Content className='cvi-modal__dialog fixed__dialog'>
             {
               title && <div className='cvi-modal__header'>
                 <RadixDialog.Title className='h2 cvi-modal__title'>{title}</RadixDialog.Title>
