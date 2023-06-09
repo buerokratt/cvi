@@ -33,6 +33,7 @@ import {
   Tooltip,
   Modal,
   Steps,
+  Notification,
 } from '@egov/cvi-react';
 
 
@@ -328,6 +329,19 @@ export function App() {
         </Modal>
       )}
 
+      <Notification
+        title='Title'
+        content='This is a notification'
+        type='info'
+        size='compact'
+      />
+
+      <Notification
+        title='Title'
+        content='This is a notification too'
+        type='success'
+      />
+
       <Steps
         title='Steps Example'
         description='Some Description'
@@ -340,6 +354,7 @@ export function App() {
         activeStepIndex={step}
         select={setStep}
       />
+
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}
       {/* Feel free to move and update them to fit your needs */}
