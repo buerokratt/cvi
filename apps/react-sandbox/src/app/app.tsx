@@ -37,6 +37,7 @@ export function App() {
     type,
     title: 'Toast Title',
     message: 'Toast Message',
+    timeout: 2000,
   })
 
   const initialTable = {

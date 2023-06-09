@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import * as RadixToast from '@radix-ui/react-toast';
 import {
   MdOutlineClose,
@@ -8,9 +8,9 @@ import {
   MdErrorOutline,
 } from 'react-icons/md';
 import clsx from 'clsx';
-import Icon from '../icon';
 import type { ToastType } from '../context/ToastContext';
 import './Toast.scss';
+import Icon from '../icons/icon/icon';
 
 type ToastProps = {
   toast: ToastType;
@@ -26,8 +26,8 @@ const toastIcons = {
 
 const Toast: FC<ToastProps> = ({ toast, close }) => {
   const [open, setOpen] = useState(true);
-
   const toastClasses = clsx('toast', `toast--${toast.type}`);
+  const progressClasses = clsx('toast__progress-bar', `toast__progress-bar--${toast.type}`);
 
   return (
     <RadixToast.Root
@@ -35,7 +35,7 @@ const Toast: FC<ToastProps> = ({ toast, close }) => {
       onEscapeKeyDown={close}
       open={open}
       onOpenChange={setOpen}
-      duration={toast.timeout && 5000}
+      duration={toast.timeout || 5000}
     >
       <RadixToast.Title className="toast__title h5">
         <Icon icon={toastIcons[toast.type]} />
@@ -47,6 +47,12 @@ const Toast: FC<ToastProps> = ({ toast, close }) => {
       <RadixToast.Close onClick={close} className="toast__close">
         <Icon icon={<MdOutlineClose />} size="medium" />
       </RadixToast.Close>
+      <div
+        className={progressClasses}
+        style={{
+          animationDuration: `${toast.timeout}ms`,
+        }}
+      />
     </RadixToast.Root>
   );
 };

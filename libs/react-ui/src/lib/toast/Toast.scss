@@ -70,4 +70,41 @@
     border-color: get-color(dark-tangerine-10);
     background-color: get-color(dark-tangerine-1);
   }
+
+  &__progress-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0.4;
+    height: 5px;
+    width: 100%;
+    transform-origin: left;
+    animation: toast_progressbar_animation linear 1 forwards;
+
+    &--success {
+      background-color: get-color(sea-green-10);
+    }
+
+    &--info {
+      background-color: get-color(sapphire-blue-10);
+    }
+
+    &--error {
+      background-color: get-color(jasper-10);
+    }
+
+    &--warning {
+      background-color: get-color(dark-tangerine-11);
+    }
+  }
+}
+
+@keyframes toast_progressbar_animation {
+  0% {
+    transform: scaleX(1);
+  }
+
+  100% {
+    transform: scaleX(0);
+  }
 }
