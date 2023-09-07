@@ -3,7 +3,7 @@ name: Publish NPM Package
 on:
   push:
     branches:
-      - main # Adjust to your main branch name or specify the desired branch
+      - dev # Adjust to your main branch name or specify the desired branch
     paths:
       - 'README.md' #this trigger is for testing purposes only
 
