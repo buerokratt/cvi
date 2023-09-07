@@ -28,7 +28,7 @@ jobs:
     - name: Display Current Directory
       run: pwd
     - name: Install Dependencies
-      run: npm install --prefix dev/libs/react-ui/src/lib/header
+      run: npm pack --prefix dev/libs/react-ui/src/lib/header
 
     - name: Publish to GitHub Packages
       run: |
