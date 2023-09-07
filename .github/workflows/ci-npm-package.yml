@@ -28,7 +28,7 @@ jobs:
     - name: Display Current Directory
       run: pwd
     - name: Install Dependencies
-      run: npm install /home/runner/work/cvi/cvi
+      run: npm install /home/runner/work/cvi/cvi/libs/react-ui/src/lib/header
 
     - name: Publish to GitHub Packages
       run: |
