@@ -14,8 +14,10 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
-  #    with:
-  #      path: cvi
+      with:
+        repository: buerokratt/cvi # Replace with the correct repository URL or shorthand
+        ref: dev # Replace with the desired branch name
+
         
     - name: Set up Node.js
       uses: actions/setup-node@v2
