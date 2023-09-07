@@ -24,13 +24,13 @@ jobs:
       with:
         node-version: 14 # Choose your Node.js version
 
- #   - name: Change Working Directory
- #     run: cd libs/react-ui/src/lib/header
+    - name: Change Working Directory
+      run: cd libs/react-ui/src/lib/header
 
     - name: Display Current Directory
       run: pwd
     - name: Install Dependencies
-      run: npm pack --prefix dev/libs/react-ui/src/lib/header
+      run: npm install
 
     - name: Publish to GitHub Packages
       run: |
