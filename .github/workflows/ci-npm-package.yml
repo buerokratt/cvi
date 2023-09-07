@@ -26,7 +26,7 @@ jobs:
  #     run: cd libs/react-ui/src/lib/header
 
     - name: Install Dependencies
-      run: npm install /cvi/libs/react-ui/src/lib/header
+      run: npm install cvi/libs/react-ui/src/lib/header
 
     - name: Publish to GitHub Packages
       run: |
