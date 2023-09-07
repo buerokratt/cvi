@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - dev # Adjust to your main branch name or specify the desired branch
-    paths:
-      - 'README.md' #this trigger is for testing purposes only
+   # paths:
+   #   - 'README.md' #this trigger is for testing purposes only
 
 jobs:
   publish:
@@ -25,6 +25,8 @@ jobs:
  #   - name: Change Working Directory
  #     run: cd libs/react-ui/src/lib/header
 
+    - name: Display Current Directory
+      run: pwd
     - name: Install Dependencies
       run: npm install cvi/libs/react-ui/src/lib/header
 
