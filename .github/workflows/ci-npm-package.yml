@@ -3,10 +3,9 @@ name: Publish NPM Package
 on:
   push:
     branches:
-      - dev # Adjust to your main branch name or specify the desired branch
+      - main # Adjust to your main branch name or specify the desired branch
     paths:
       - 'README.md' #this trigger is for testing purposes only
-
 
 jobs:
   publish:
@@ -15,6 +14,8 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
+      with:
+        path: dev/libs/react-ui/src/lib/header # Specify the path to checkout
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -23,7 +24,6 @@ jobs:
 
     - name: Change Working Directory
       run: cd dev/libs/react-ui/src/lib/header
-      working-directory: ./dev/libs/react-ui/src/lib/header
 
     - name: Install Dependencies
       run: npm install
@@ -34,3 +34,4 @@ jobs:
         npm publish --registry=https://npm.pkg.github.com
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
