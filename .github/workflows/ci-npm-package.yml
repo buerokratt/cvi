@@ -1,41 +1,35 @@
-name: Publish NPM Package
+name: Node.js Package
 
 on:
   push:
     branches:
       - dev # Adjust to your main branch name or specify the desired branch
-   # paths:
-   #   - 'README.md' #this trigger is for testing purposes only
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-     # with:
-     #   repository: buerokratt/cvi # Replace with the correct repository URL or shorthand
-     #   ref: dev # Replace with the desired branch name
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm test
 
-        
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 14 # Choose your Node.js version
-
-    - name: Change Working Directory
-      run: cd libs/react-ui/src/lib/header
-
-    - name: Display Current Directory
-      run: pwd
-    - name: Install Dependencies
-      run: npm install libs/react-ui/src/lib/header/
-
-    - name: Publish to GitHub Packages
-      run: |
-        echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
-        npm publish --registry=https://npm.pkg.github.com
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
