@@ -15,7 +15,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v2
       with:
-        path: header
+        path: cvi
         
     - name: Set up Node.js
       uses: actions/setup-node@v2
@@ -23,7 +23,7 @@ jobs:
         node-version: 14 # Choose your Node.js version
 
     - name: Change Working Directory
-      run: cd dev/libs/react-ui/src/lib/header
+      run: cd cvi/dev/libs/react-ui/src/lib/header
 
     - name: Install Dependencies
       run: npm install
