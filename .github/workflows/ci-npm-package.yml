@@ -30,7 +30,7 @@ jobs:
     - name: Display Current Directory
       run: pwd
     - name: Install Dependencies
-      run: npm install
+      run: npm install libs/react-ui/src/lib/header/
 
     - name: Publish to GitHub Packages
       run: |
