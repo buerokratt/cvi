@@ -22,8 +22,8 @@ jobs:
         node-version: 14 # Choose your Node.js version
 
     - name: Change Working Directory
-      run: cd cvi/libs/react-ui/src/lib/header
-      working-directory: ./cvi/libs/react-ui/src/lib/header
+      run: cd dev/libs/react-ui/src/lib/header
+      working-directory: ./dev/libs/react-ui/src/lib/header
 
     - name: Install Dependencies
       run: npm install
