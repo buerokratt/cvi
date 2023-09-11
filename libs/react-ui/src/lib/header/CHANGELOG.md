@@ -1,6 +1,10 @@
 # Changelog
 
 All changes to this project will be documented in this file.
+## [0.0.18] - 11-09-2023
+
+- Updated navigation menu default data.
+
 ## [0.0.17] - 06-09-2023
 
 - Updated navigation menu link generation.

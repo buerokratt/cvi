@@ -50,56 +50,56 @@
               "et": "Teemad",
               "en": "Themes"
             },
-            "path": "/training/training/intents"
+            "path": "/training/intents"
           },
           {
             "label": {
               "et": "Avalikud teemad",
               "en": "Public themes"
             },
-            "path": "/training/training/common-intents"
+            "path": "/training/common-intents"
           },
           {
             "label": {
               "et": "Teemade järeltreenimine",
               "en": "Post training themes"
             },
-            "path": "/training/training/intents-followup-training"
+            "path": "/training/intents-followup-training"
           },
           {
             "label": {
               "et": "Vastused",
               "en": "Answers"
             },
-            "path": "/training/training/responses"
+            "path": "/training/responses"
           },
           {
             "label": {
               "et": "Kasutuslood",
               "en": "User Stories"
             },
-            "path": "/training/training/stories"
+            "path": "/training/stories"
           },
           {
             "label": {
               "et": "Konfiguratsioon",
               "en": "Configuration"
             },
-            "path": "/training/training/configuration"
+            "path": "/training/configuration"
           },
           {
             "label": {
               "et": "Vormid",
               "en": "Forms"
             },
-            "path": "/training/training/forms"
+            "path": "/training/forms"
           },
           {
             "label": {
               "et": "Mälukohad",
               "en": "Slots"
             },
-            "path": "/training/training/slots"
+            "path": "/training/slots"
           }
         ]
       },
@@ -108,21 +108,21 @@
           "et": "Ajaloolised vestlused",
           "en": "Historical conversations"
         },
-        "path": "/training/history",
+        "path": "/history",
         "children": [
           {
             "label": {
               "et": "Ajalugu",
               "en": "History"
             },
-            "path": "/training/history/history"
+            "path": "/history/history"
           },
           {
             "label": {
               "et": "Pöördumised",
               "en": "Appeals"
             },
-            "path": "/training/history/appeal"
+            "path": "/history/appeal"
           }
         ]
       },
@@ -131,28 +131,28 @@
           "et": "Mudelipank ja analüütika",
           "en": "Modelbank and analytics"
         },
-        "path": "/training/analytics",
+        "path": "/analytics",
         "children": [
           {
             "label": {
               "et": "Teemade ülevaade",
               "en": "Overview of topics"
             },
-            "path": "/training/analytics/overview"
+            "path": "/analytics/overview"
           },
           {
             "label": {
               "et": "Mudelite võrdlus",
               "en": "Comparison of models"
             },
-            "path": "/training/analytics/models"
+            "path": "/analytics/models"
           },
           {
             "label": {
               "et": "Testlood",
               "en": "testTracks"
             },
-            "path": "/training/analytics/testcases"
+            "path": "/analytics/testcases"
           }
         ]
       },
