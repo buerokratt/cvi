@@ -1,6 +1,10 @@
 # Changelog
 
 All changes to this project will be documented in this file.
+## [0.0.19] - 11-09-2023
+
+- Updated 'storeState' type for header. Removed double 'userInfo' interface declaration.
+
 ## [0.0.18] - 11-09-2023
 
 - Updated navigation menu default data.
