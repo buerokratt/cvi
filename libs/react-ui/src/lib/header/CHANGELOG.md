@@ -1,6 +1,18 @@
 # Changelog
 
 All changes to this project will be documented in this file.
+## [0.0.21] - 18-09-2023
+
+- Changed service id from string to string[] (array)
+
+## [0.0.20] - 15-09-2023
+
+- Updated menu structure data. Changed main navigation component to use added variables. Changed finding current module logic.
+
+## [0.0.19] - 11-09-2023
+
+- Updated 'storeState' type for header. Removed double 'userInfo' interface declaration.
+
 ## [0.0.18] - 11-09-2023
 
 - Updated navigation menu default data.
