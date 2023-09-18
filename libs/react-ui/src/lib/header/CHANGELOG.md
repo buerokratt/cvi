@@ -1,6 +1,9 @@
 # Changelog
 
 All changes to this project will be documented in this file.
+## [0.0.21] - 18-09-2023
+
+- Changed service id from string to string[] (array)
 
 ## [0.0.20] - 15-09-2023
 

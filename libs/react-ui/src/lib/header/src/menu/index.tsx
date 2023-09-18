@@ -22,7 +22,7 @@ interface TranslatedLabel {
     [lang: string] : string;
 }
 
-const MainNavigation: FC<{items: MenuItem[], serviceId: string}> = ( {items, serviceId}) => {
+const MainNavigation: FC<{items: MenuItem[], serviceId: string[]}> = ( {items, serviceId}) => {
   if(items.length === 0) {
     items = menuStructure;
   }
@@ -115,7 +115,7 @@ const MainNavigation: FC<{items: MenuItem[], serviceId: string}> = ( {items, ser
           </>
         ) : (
 
-          (serviceId === menuItem.id) ?
+          (serviceId.includes(menuItem.id)) ?
             <NavLink to={menuItem.path || '#'}>{menuItem.label['et'] }</NavLink> :
             <a href={menuData.find(dataItem => dataItem.id === menuItem.id)?.url + menuItem.path}>{menuItem.label['et']}</a>
 
