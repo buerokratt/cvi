@@ -1,6 +1,23 @@
 # Changelog
-
 All changes to this project will be documented in this file.
+
+## [0.0.26] - 24-10-2023
+
+-Updated usersettings
+
+## [0.0.25] - 24-10-2023
+
+-Menu items array fix
+
+## [0.0.23] - 24-10-2023
+
+- Fixed requests using mock data.
+
+## [0.0.22] - 24-10-2023
+
+- Fixed styling issues.
+- Fixed requests using mock data.
+
 ## [0.0.21] - 18-09-2023
 
 - Changed service id from string to string[] (array)

@@ -23,7 +23,7 @@ interface TranslatedLabel {
 }
 
 const MainNavigation: FC<{items: MenuItem[], serviceId: string[]}> = ( {items, serviceId}) => {
-  if(items.length === 0) {
+  if(!items.isArray || items.length === 0) {
     items = menuStructure;
   }
 
@@ -99,7 +99,7 @@ const MainNavigation: FC<{items: MenuItem[], serviceId: string[]}> = ( {items, s
           <>
             <button
               className={clsx('nav__toggle', { 'nav__toggle--icon': !!menuItem.id })}
-              aria-expanded={menuItem.path && (serviceId === menuItem.id) ? 'true' : 'false'}
+              aria-expanded={menuItem.path && (menuItem.path.includes(useLocation.pathname)) ? 'true' : 'false'}
               onClick={handleNavToggle}
             >
               { menuItem.id &&  (
