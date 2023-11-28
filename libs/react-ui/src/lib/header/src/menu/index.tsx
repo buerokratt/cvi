@@ -1,6 +1,6 @@
-import React, { FC, MouseEvent, useEffect, useState } from 'react';
+import React, {FC, MouseEvent, useEffect, useState} from 'react';
 
-import { NavLink, useLocation } from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
 import {MdClose, MdKeyboardArrowDown, MdMiscellaneousServices} from 'react-icons/md';
 import clsx from 'clsx';
 import { MdOutlineForum, MdOutlineAdb, MdOutlineEqualizer, MdSettings, MdOutlineMonitorWeight } from 'react-icons/md';
@@ -27,7 +27,8 @@ const MainNavigation: FC<{items: MenuItem[], serviceId: string[]}> = ( {items, s
     items = menuStructure;
   }
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentlySelectedLanguage = i18n.language;
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const menuData = [
     {
@@ -94,19 +95,19 @@ const MainNavigation: FC<{items: MenuItem[], serviceId: string[]}> = ( {items, s
 
   const renderMenuTree = (menuItems: MenuItem[]) => {
     return menuItems.map((menuItem) => (
-      <li key={menuItem.label['et']}>
+      <li key={menuItem.label[currentlySelectedLanguage]}>
         {!!menuItem.children ? (
           <>
             <button
               className={clsx('nav__toggle', { 'nav__toggle--icon': !!menuItem.id })}
-              aria-expanded={menuItem.path && (menuItem.path.includes(useLocation.pathname)) ? 'true' : 'false'}
+              aria-expanded={menuItem.path && (isSameRoot(menuItem)) ? 'true' : 'false'}
               onClick={handleNavToggle}
             >
               { menuItem.id &&  (
                 <Icon icon={menuData.find(dataItem => dataItem.id === menuItem.id)?.icon} />
               )}
 
-              <span>{menuItem.label['et']}</span>
+              <span>{menuItem.label[currentlySelectedLanguage]}</span>
               <Icon icon={<MdKeyboardArrowDown />} />
             </button>
             <ul className='nav__submenu'>
@@ -116,14 +117,23 @@ const MainNavigation: FC<{items: MenuItem[], serviceId: string[]}> = ( {items, s
         ) : (
 
           (serviceId.includes(menuItem.id)) ?
-            <NavLink to={menuItem.path || '#'}>{menuItem.label['et'] }</NavLink> :
-            <a href={menuData.find(dataItem => dataItem.id === menuItem.id)?.url + menuItem.path}>{menuItem.label['et']}</a>
+            <NavLink to={menuItem.path || '#'}>{menuItem.label[currentlySelectedLanguage] }</NavLink> :
+            <a href={menuData.find(dataItem => dataItem.id === menuItem.id)?.url + menuItem.path}>{menuItem.label[currentlySelectedLanguage]}</a>
 
         )}
       </li>),
     );
   };
 
+  const base = window.location.pathname.split("/")[1];
+  const currentService = base === 'chat' ? serviceId : [base];
+  const isSameRoot = (menuItem) => {
+    let result = false;
+    if(currentService.includes(menuItem.id)){
+      result = menuItem.children.some((item: MenuItem) => item.path?.includes("/" + window.location.pathname.split("/")[2]));
+    }
+    return result;
+  }
 
   if (!menuItems) return null;
 
