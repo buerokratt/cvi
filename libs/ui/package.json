@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "sanitize-html": "2.7.1",
+    "sanitize-html": "2.13.0",
     "rxjs": "~7.5.6",
     "@egov/cvi-icons": "^1.1.0"
   },
