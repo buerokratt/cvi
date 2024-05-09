@@ -45,7 +45,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.37.0",
     "react-router-dom": "6.4.3",
     "regenerator-runtime": "0.13.7",
     "rxjs": "~7.5.6",
