@@ -1,5 +1,5 @@
 ARG node_version=node:lts
-ARG nginx_version=nginx:1.23.1-alpine
+ARG nginx_version=nginx:1.27.3-alpine
 ARG alpine_version=alpine:3.14
 ARG use_private_registry=false
 ARG private_apk_registry=""
